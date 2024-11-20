@@ -7,5 +7,4 @@ class Dummy : public ATarget
         Dummy();
         ~Dummy();
         Dummy* clone() const;
-
 };

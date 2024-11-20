@@ -7,16 +7,19 @@ class ASpell;
 
 class ATarget
 {
+    public:
+        ATarget();
+        ATarget(ATarget const &copy);
+        ATarget &operator=(ATarget const &rhs);
+        ATarget(std::string type);
+        virtual ~ATarget();
+
+        const std::string &getType() const;
+        virtual ATarget* clone() const = 0;
+
+        void getHitBySpell(const ASpell &spell) const ;
+
     protected:
         std::string _type;
-    
-    public:
-        ATarget() {};
-        ATarget(std::string type);
-        ATarget(const ATarget &copy);
-        ATarget &operator=(const ATarget &rhs);
-        virtual ~ATarget() {};
-        const std::string &getType() const {return _type;}
-        virtual ATarget* clone() const = 0;
-        void getHitBySpell(const ASpell &spell) const;
+
 };
